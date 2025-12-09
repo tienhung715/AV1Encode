@@ -8,7 +8,7 @@ ffmpeg.exe -i "input.mkv" -map 0:v -map 0:a -map 0:s? -map_chapters -1 -vf "crop
 
 ffmpeg.exe -i "input.mkv" -map 0:v -map 0:a -map 0:s? -map_chapters -1 -vf "crop=3840:1608:0:276" -c:v av1_nvenc -preset p5 -b:v 18M -minrate 16M -maxrate 20M -bufsize 20M -color_primaries bt2020 -color_trc smpte2084 -colorspace bt2020nc -c:a copy -c:s copy "output.mkv"
 
-
+```
 $root = "C:\Video"
 $ffmpeg = "ffmpeg.exe"
 
@@ -37,4 +37,4 @@ Get-ChildItem -Path $root -Directory | ForEach-Object {
         Write-Host "⚠ Không tìm thấy file MKV trong $folder"
     }
 }
-
+```
