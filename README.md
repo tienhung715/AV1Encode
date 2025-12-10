@@ -29,7 +29,7 @@ Get-ChildItem -Path $root -Directory | ForEach-Object {
 
         Write-Host "▶ Converting: $inputFile"
 
-        & $ffmpeg -i "$inputFile" -map 0:v -map 0:a -map 0:s? `
+        & $ffmpeg -i "$inputFile" -map 0:v -map 0:a -map 0:s? -map_chapters -1 `
         -c:v av1_nvenc -preset p5 -b:v 18M -minrate 16M -maxrate 20M -bufsize 20M `
         -g 90 -forced-idr 1 -sc_threshold 100 `
         -color_primaries bt2020 -color_trc smpte2084 -colorspace bt2020nc `
